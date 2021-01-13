@@ -1,0 +1,4 @@
+#Wed Jan 13 19:49:59 CET 2021
+base.0=/home/aymeric/Git/Perso/Louseng/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
