@@ -1,4 +1,4 @@
-package com.example.louseng
+package fr.aypics.louseng
 
 import io.flutter.embedding.android.FlutterActivity
 

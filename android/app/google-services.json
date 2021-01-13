@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "292508943527",
+    "project_id": "louseng-f96f0",
+    "storage_bucket": "louseng-f96f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292508943527:android:7a59001fcaf41da1038782",
+        "android_client_info": {
+          "package_name": "fr.aypics.louseng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292508943527-v4vrlbuolcl6mj8s9hnp7fsgucudufoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn8yxn-CvW2eD1SYCpCPkZU0BRTAqJTA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292508943527-v4vrlbuolcl6mj8s9hnp7fsgucudufoa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
