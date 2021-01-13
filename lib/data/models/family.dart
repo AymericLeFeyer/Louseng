@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -7,17 +8,42 @@ const _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 class Family {
   String code;
-  List<User> members = new List<User>();
   int n = 0;
+  List<User> members = new List<User>();
 
   Family({Key key, this.code, this.members, this.n});
+
+  factory Family.fromJson(Map<String, dynamic> json) {
+    return Family(
+        code: json['code'], n: json['n'], members: createList(json['members']));
+  }
+
+  Map toJson() {
+    List<Map> members = this.members != null
+        ? this.members.map((i) => i.toJson()).toList()
+        : null;
+
+    return {
+      'code': code,
+      'n': n,
+      'members': members,
+    };
+  }
+
+  static List<User> createList(List<dynamic> s) {
+    List<User> L = new List<User>();
+    for (int i = 0; i < s.length; i++) {
+      L.add(User.fromJson(s[i]));
+    }
+    return L;
+  }
 
   void increment() {
     this.n++;
   }
 
   void generateCode() {
-    print(getRandomString(4));
+    this.code = getRandomString(4);
   }
 }
 
