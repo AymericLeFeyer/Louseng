@@ -15,6 +15,7 @@ class MyApp extends GetMaterialApp {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Welcome to Flutter',
+      theme: MyTheme.light,
       home: EntryView(),
       debugShowCheckedModeBanner: false,
     );

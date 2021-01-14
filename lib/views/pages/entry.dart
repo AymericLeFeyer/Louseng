@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:louseng/constants/colors.dart';
 import 'package:louseng/data/models/family.dart';
 import 'package:louseng/data/models/user.dart';
 import 'package:louseng/data/provider/firebaseStorage.dart';
 import 'package:louseng/views/components/myButton.dart';
+import 'package:louseng/views/components/title.dart';
 import 'package:louseng/views/pages/home.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
@@ -27,52 +29,63 @@ class _EntryViewState extends State<EntryView> {
       appBar: AppBar(
         title: Text("Louseng"),
       ),
+      backgroundColor: MyTheme.light.primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("What is your name ?"),
+                MyTitle(title: "What is your name ?"),
                 Container(
-                  width: Get.size.width / 2,
                   child: TextField(
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20, color: MyTheme.light.accentColor),
                     onChanged: (value) {
                       EntryView.name = value;
                     },
                     decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter your name here'),
+                      border: InputBorder.none,
+                      hintText: 'Enter your name here',
+                      hintStyle: TextStyle(
+                          fontSize: 20, color: MyTheme.light.accentColor),
+                    ),
                   ),
                 ),
               ],
             ),
             MyButton(
-              title: "Create a new dish",
-              onPressed: createDish,
-            ),
-            Row(
+                title: "Create a new dish",
+                onPressed: createDish,
+                icon: Icon(Icons.add)),
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Do you know the code ?"),
+                MyTitle(title: "Do you have a code ?"),
                 Container(
-                  width: Get.size.width / 2,
                   child: TextField(
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 20, color: MyTheme.light.accentColor),
                     onChanged: (value) {
                       EntryView.code = value;
                     },
                     decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Enter the family code here'),
+                        hintText: 'Enter the family code here',
+                        hintStyle: TextStyle(
+                            fontSize: 20, color: MyTheme.light.accentColor)),
                   ),
                 ),
               ],
             ),
             MyButton(
-              title: "Join my family",
-              onPressed: joinDish,
-            ),
+                title: "Join my family",
+                onPressed: joinDish,
+                icon: Icon(Icons.group)),
           ],
         ),
       ),
@@ -106,14 +119,16 @@ void joinDish() async {
     if (await Storage.checkIfExistAndJoin(EntryView.code)) {
       Get.to(HomeView());
     } else {
-      Get.snackbar("We got a problem", "The code you enter doesn't exists !");
+      Get.snackbar("We got a problem", "The code you enter doesn't exists !",
+          colorText: MyTheme.light.accentColor);
     }
   }
 }
 
 bool codeWrote() {
   if (EntryView.code == null || EntryView.code == "") {
-    Get.snackbar("What is your code ?", "You need to enter the code before !");
+    Get.snackbar("What is your code ?", "You need to enter the code before !",
+        colorText: MyTheme.light.accentColor);
     return false;
   } else
     return true;
@@ -121,7 +136,8 @@ bool codeWrote() {
 
 bool nameWrote() {
   if (EntryView.name == null || EntryView.name == "") {
-    Get.snackbar("Who are you ?", "You need to put your name before !");
+    Get.snackbar("Who are you ?", "You need to put your name before !",
+        colorText: MyTheme.light.accentColor);
     return false;
   } else
     return true;
