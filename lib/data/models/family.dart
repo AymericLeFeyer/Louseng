@@ -11,6 +11,8 @@ class Family {
   int n = 0;
   List<User> members = new List<User>();
 
+  static Family current;
+
   Family({Key key, this.code, this.members, this.n});
 
   factory Family.fromJson(Map<String, dynamic> json) {
@@ -36,10 +38,6 @@ class Family {
       L.add(User.fromJson(s[i]));
     }
     return L;
-  }
-
-  void increment() {
-    this.n++;
   }
 
   void generateCode() {

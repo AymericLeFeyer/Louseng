@@ -1,38 +1,57 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:louseng/data/models/family.dart';
 import 'package:louseng/data/models/user.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 class Storage {
-  FirebaseStorage storage = FirebaseStorage.instance;
-  File f;
-  Directory directory;
+  static FirebaseStorage storage = FirebaseStorage.instance;
+  static File f;
+  static Directory directory;
 
-  void write(String data) async {
-    if (directory == null) {
-      directory = await getApplicationDocumentsDirectory();
-    }
+  static void write(Family fa) async {
+    directory = await getApplicationDocumentsDirectory();
 
     f = new File('${directory.path}/temp.txt');
 
-    //TEST
-    User u = new User(name: "Aymeric", n: 0);
-    User u1 = new User(name: 'Emilie', n: 2);
-
-    Family fa = new Family(n: 7);
-    fa.generateCode();
-    fa.members = new List<User>();
-    fa.members.add(u);
-    fa.members.add(u1);
-
-    //END TEST
-
+    storage = FirebaseStorage.instance;
     var ref = storage.ref().child('dishes/${fa.code}');
 
-    f.writeAsString(fa.toJson().toString());
+    f.writeAsString(json.encode(fa));
 
     ref.putFile(f);
+  }
+
+  static Future<bool> checkIfExistAndJoin(String code) async {
+    try {
+      getFamily(code);
+
+      User.current.index = Family.current.members.length;
+      Family.current.members.add(User.current);
+      write(Family.current);
+
+      return true;
+      // Do whatever
+    } catch (err) {
+      return false;
+      // Doesn't exist... or potentially some other error
+    }
+  }
+
+  static void refresh() async {
+    getFamily(Family.current.code);
+  }
+
+  static void getFamily(String code) async {
+    directory = await getApplicationDocumentsDirectory();
+    storage = FirebaseStorage.instance;
+    var ref = storage.ref().child('dishes/$code');
+    var url = await ref.getDownloadURL();
+    var downloaded = await http.get(url);
+
+    Family.current = Family.fromJson(json.decode(downloaded.body));
   }
 }

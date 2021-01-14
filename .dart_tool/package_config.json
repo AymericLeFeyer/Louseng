@@ -128,6 +128,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "http",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
       "name": "http_parser",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4",
       "packageUri": "lib/",
@@ -190,6 +196,12 @@
     {
       "name": "path_provider_windows",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-0.0.4+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.2",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -290,7 +302,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-13T21:20:55.714699Z",
+  "generated": "2021-01-14T19:03:59.167778Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }
