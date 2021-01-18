@@ -12,7 +12,7 @@ class MyTitle extends StatelessWidget {
       title,
       style: TextStyle(
           fontSize: 36,
-          color: MyTheme.light.accentColor,
+          color: MyTheme.light.primaryColor,
           fontWeight: FontWeight.bold),
     );
   }

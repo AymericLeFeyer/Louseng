@@ -27,9 +27,10 @@ class _EntryViewState extends State<EntryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Louseng"),
+        title: Text("Yee Sang",
+            style: TextStyle(color: MyTheme.light.accentColor)),
       ),
-      backgroundColor: MyTheme.light.primaryColor,
+      backgroundColor: Colors.grey[900],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,7 +44,7 @@ class _EntryViewState extends State<EntryView> {
                   child: TextField(
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.accentColor),
+                        fontSize: 20, color: MyTheme.light.primaryColor),
                     onChanged: (value) {
                       EntryView.name = value;
                     },
@@ -51,7 +52,7 @@ class _EntryViewState extends State<EntryView> {
                       border: InputBorder.none,
                       hintText: 'Enter your name here',
                       hintStyle: TextStyle(
-                          fontSize: 20, color: MyTheme.light.accentColor),
+                          fontSize: 20, color: MyTheme.light.primaryColor),
                     ),
                   ),
                 ),
@@ -69,7 +70,7 @@ class _EntryViewState extends State<EntryView> {
                   child: TextField(
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.accentColor),
+                        fontSize: 20, color: MyTheme.light.primaryColor),
                     onChanged: (value) {
                       EntryView.code = value;
                     },
@@ -77,7 +78,7 @@ class _EntryViewState extends State<EntryView> {
                         border: InputBorder.none,
                         hintText: 'Enter the family code here',
                         hintStyle: TextStyle(
-                            fontSize: 20, color: MyTheme.light.accentColor)),
+                            fontSize: 20, color: MyTheme.light.primaryColor)),
                   ),
                 ),
               ],
