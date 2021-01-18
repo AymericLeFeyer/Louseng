@@ -3,6 +3,7 @@ cloud_firestore=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.
 cloud_firestore_web=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.2.1+2/
 firebase_core=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.3/
 firebase_core_web=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1/
+firebase_messaging=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-7.0.3/
 firebase_storage=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-4.0.1/
 path_provider=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.27/
 path_provider_linux=/home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/

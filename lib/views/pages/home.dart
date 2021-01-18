@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:louseng/constants/colors.dart';
+import 'package:louseng/controllers/firebaseMessaging.dart';
 import 'package:louseng/data/models/family.dart';
 import 'package:louseng/data/models/user.dart';
 import 'package:louseng/data/provider/firebaseStorage.dart';
 import 'package:louseng/views/components/title.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -15,6 +17,17 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    initState() {
+      refresh() {
+        setState(() {});
+      }
+
+      Storage.homeview = refresh;
+
+      Messaging.sendNotif(Family.current);
+    }
+
+    Messaging.start();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -66,6 +79,8 @@ class _HomeViewState extends State<HomeView> {
                       Family.current.members[User.current.index].n += 1;
 
                       Storage.write(Family.current);
+
+                      Messaging.sendNotif(Family.current);
                     });
                   },
                   child: Image.asset("assets/louseng.jpg"),

@@ -4,6 +4,23 @@
             "outputFile": "/home/aymeric/Git/Perso/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
+                    "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/fcd188b91ef5eb6fde54d777c61bb4b1/jetified-firebase-messaging-21.0.1/res/values-fr-rCA/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "211",
+                        "endColumns": "100",
+                        "endOffsets": "311"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "3006",
+                        "endColumns": "104",
+                        "endOffsets": "3106"
+                    }
+                },
+                {
                     "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/values-fr-rCA/values-fr-rCA.xml",
                     "from": {
                         "startLines": "2",
@@ -13,11 +30,11 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "21",
                         "startColumns": "4",
-                        "startOffsets": "3006",
+                        "startOffsets": "3111",
                         "endColumns": "100",
-                        "endOffsets": "3102"
+                        "endOffsets": "3207"
                     }
                 },
                 {

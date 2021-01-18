@@ -98,6 +98,12 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "firebase_messaging",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-7.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "firebase_storage",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-4.0.1",
       "packageUri": "lib/",
@@ -302,7 +308,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-14T19:03:59.167778Z",
+  "generated": "2021-01-18T19:29:18.790168Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:louseng/controllers/firebaseMessaging.dart';
 import 'package:louseng/data/models/family.dart';
 import 'package:louseng/data/models/user.dart';
+import 'package:louseng/views/pages/home.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,6 +13,7 @@ class Storage {
   static FirebaseStorage storage = FirebaseStorage.instance;
   static File f;
   static Directory directory;
+  static Function homeview;
 
   static void write(Family fa) async {
     directory = await getApplicationDocumentsDirectory();
@@ -42,7 +45,9 @@ class Storage {
   }
 
   static void refresh() async {
+    print("REFRESHED");
     getFamily(Family.current.code);
+    homeview();
   }
 
   static void getFamily(String code) async {
