@@ -8,6 +8,7 @@ import 'package:louseng/constants/colors.dart';
 import 'package:louseng/data/models/family.dart';
 import 'package:louseng/data/models/user.dart';
 import 'package:louseng/data/provider/firebaseStorage.dart';
+import 'package:louseng/views/components/avatar.dart';
 import 'package:louseng/views/components/myButton.dart';
 import 'package:louseng/views/components/title.dart';
 import 'package:louseng/views/pages/home.dart';
@@ -26,68 +27,38 @@ class _EntryViewState extends State<EntryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Yee Sang",
-            style: TextStyle(color: MyTheme.light.accentColor)),
-      ),
-      backgroundColor: Colors.grey[900],
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                MyTitle(title: "What is your name ?"),
-                Container(
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.primaryColor),
-                    onChanged: (value) {
-                      EntryView.name = value;
-                    },
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter your name here',
-                      hintStyle: TextStyle(
-                          fontSize: 20, color: MyTheme.light.primaryColor),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            MyButton(
-                title: "Create a new dish",
-                onPressed: createDish,
-                icon: Icon(Icons.add)),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MyTitle(title: "Do you have a code ?"),
-                Container(
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.primaryColor),
-                    onChanged: (value) {
-                      EntryView.code = value;
-                    },
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Enter the family code here',
-                        hintStyle: TextStyle(
-                            fontSize: 20, color: MyTheme.light.primaryColor)),
-                  ),
-                ),
-              ],
-            ),
-            MyButton(
-                title: "Join my family",
-                onPressed: joinDish,
-                icon: Icon(Icons.group)),
-          ],
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.yellow, Colors.red])),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                "Yee Sang",
+                style:
+                    TextStyle(color: MyTheme.light.primaryColor, fontSize: 56),
+              ),
+              Avatar(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  MyButton(
+                      title: "Create \na new dish",
+                      onPressed: createDish,
+                      icon: Icons.add),
+                  MyButton(
+                      title: "Join \nmy family",
+                      onPressed: joinDish,
+                      icon: Icons.group),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
