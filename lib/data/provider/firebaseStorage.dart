@@ -30,11 +30,13 @@ class Storage {
 
   static Future<bool> checkIfExistAndJoin(String code) async {
     try {
-      getFamily(code);
+      await getFamily(code);
 
       User.current.index = Family.current.members.length;
       Family.current.members.add(User.current);
       write(Family.current);
+
+      print("check : ${Family.current.code}");
 
       return true;
       // Do whatever
@@ -50,7 +52,7 @@ class Storage {
     homeview();
   }
 
-  static void getFamily(String code) async {
+  static Future<void> getFamily(String code) async {
     directory = await getApplicationDocumentsDirectory();
     storage = FirebaseStorage.instance;
     var ref = storage.ref().child('dishes/$code');
@@ -58,5 +60,7 @@ class Storage {
     var downloaded = await http.get(url);
 
     Family.current = Family.fromJson(json.decode(downloaded.body));
+
+    print("dl : ${Family.current.code}");
   }
 }

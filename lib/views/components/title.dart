@@ -13,7 +13,8 @@ class MyTitle extends StatelessWidget {
       style: TextStyle(
           fontSize: 36,
           color: MyTheme.light.primaryColor,
-          fontWeight: FontWeight.bold),
+          fontWeight: FontWeight.bold,
+          fontFamily: 'AsianHero'),
     );
   }
 }

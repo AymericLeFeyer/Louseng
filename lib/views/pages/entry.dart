@@ -40,8 +40,10 @@ class _EntryViewState extends State<EntryView> {
             children: [
               Text(
                 "Yee Sang",
-                style:
-                    TextStyle(color: MyTheme.light.primaryColor, fontSize: 56),
+                style: TextStyle(
+                    color: MyTheme.light.primaryColor,
+                    fontSize: 72,
+                    fontFamily: 'AsianHero'),
               ),
               Avatar(),
               Row(
@@ -53,7 +55,7 @@ class _EntryViewState extends State<EntryView> {
                       icon: Icons.add),
                   MyButton(
                       title: "Join \nmy family",
-                      onPressed: joinDish,
+                      onPressed: () => joinDish(context),
                       icon: Icons.group),
                 ],
               ),
@@ -84,15 +86,23 @@ void createDish() async {
   }
 }
 
-void joinDish() async {
-  if (codeWrote() && nameWrote()) {
+void joinDish(BuildContext context) async {
+  if (nameWrote()) {
     User.rename(EntryView.name);
 
-    if (await Storage.checkIfExistAndJoin(EntryView.code)) {
+    await displayTextInputDialog(context);
+
+    if (EntryView.code == "" || EntryView.code == null) {
+      Get.snackbar(
+          "Problem with the code", "You must enter a code to continue !",
+          colorText: MyTheme.light.primaryColor);
+    } else if (await Storage.checkIfExistAndJoin(EntryView.code)) {
+      print(EntryView.code);
       Get.to(HomeView());
     } else {
-      Get.snackbar("We got a problem", "The code you enter doesn't exists !",
-          colorText: MyTheme.light.accentColor);
+      Get.snackbar(
+          "Problem with the code", "The code you enter doesn't exists !",
+          colorText: MyTheme.light.primaryColor);
     }
   }
 }
@@ -100,7 +110,7 @@ void joinDish() async {
 bool codeWrote() {
   if (EntryView.code == null || EntryView.code == "") {
     Get.snackbar("What is your code ?", "You need to enter the code before !",
-        colorText: MyTheme.light.accentColor);
+        colorText: MyTheme.light.primaryColor);
     return false;
   } else
     return true;
@@ -109,8 +119,43 @@ bool codeWrote() {
 bool nameWrote() {
   if (EntryView.name == null || EntryView.name == "") {
     Get.snackbar("Who are you ?", "You need to put your name before !",
-        colorText: MyTheme.light.accentColor);
+        colorText: MyTheme.light.primaryColor);
     return false;
   } else
     return true;
+}
+
+Future<void> displayTextInputDialog(BuildContext context) async {
+  EntryView.code = "";
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Join my family',
+              style: TextStyle(color: MyTheme.light.primaryColor)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                  "Here you can enter a code. \nAsk it to your family and let's stir the dish !"),
+              TextField(
+                onChanged: (value) {
+                  EntryView.code = value;
+                },
+                decoration: InputDecoration(hintText: "CODE"),
+              ),
+            ],
+          ),
+          actions: [
+            FlatButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: MyTheme.light.primaryColor),
+                ))
+          ],
+        );
+      });
 }

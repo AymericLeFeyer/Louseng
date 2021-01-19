@@ -13,11 +13,23 @@ void main() async {
 class MyApp extends GetMaterialApp {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Welcome to Flutter',
-      theme: MyTheme.light,
-      home: EntryView(),
-      debugShowCheckedModeBanner: false,
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        print(currentFocus);
+
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus.unfocus();
+        }
+      },
+      child: GetMaterialApp(
+        title: 'Welcome to Flutter',
+        theme: MyTheme.light,
+        home: EntryView(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
