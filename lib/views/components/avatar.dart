@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:louseng/constants/colors.dart';
-import 'package:louseng/data/models/user.dart';
-import 'package:louseng/views/pages/entry.dart';
+import 'package:yeeSang/constants/colors.dart';
+import 'package:yeeSang/data/models/user.dart';
+import 'package:yeeSang/views/pages/entry.dart';
 
 class Avatar extends StatefulWidget {
   String name;

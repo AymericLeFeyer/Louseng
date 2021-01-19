@@ -1,17 +1,18 @@
 import 'dart:io';
 
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:louseng/constants/colors.dart';
-import 'package:louseng/data/models/family.dart';
-import 'package:louseng/data/models/user.dart';
-import 'package:louseng/data/provider/firebaseStorage.dart';
-import 'package:louseng/views/components/avatar.dart';
-import 'package:louseng/views/components/myButton.dart';
-import 'package:louseng/views/components/title.dart';
-import 'package:louseng/views/pages/home.dart';
+import 'package:yeeSang/constants/colors.dart';
+import 'package:yeeSang/data/models/family.dart';
+import 'package:yeeSang/data/models/user.dart';
+import 'package:yeeSang/data/provider/firebaseStorage.dart';
+import 'package:yeeSang/views/components/avatar.dart';
+import 'package:yeeSang/views/components/myButton.dart';
+import 'package:yeeSang/views/components/title.dart';
+import 'package:yeeSang/views/pages/home.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -30,20 +31,22 @@ class _EntryViewState extends State<EntryView> {
       body: Center(
         child: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.yellow, Colors.red])),
+              image: DecorationImage(
+                  image: AssetImage("assets/background.jpg"),
+                  fit: BoxFit.cover)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                "Yee Sang",
-                style: TextStyle(
-                    color: MyTheme.light.primaryColor,
-                    fontSize: 72,
-                    fontFamily: 'AsianHero'),
+              BorderedText(
+                strokeWidth: 6.0,
+                child: Text(
+                  "Yee Sang",
+                  style: TextStyle(
+                      color: MyTheme.light.accentColor,
+                      fontSize: 72,
+                      fontFamily: 'AsianHero'),
+                ),
               ),
               Avatar(),
               Row(

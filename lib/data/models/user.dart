@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:louseng/data/models/family.dart';
+import 'package:yeeSang/data/models/family.dart';
 
 class User {
   String name;

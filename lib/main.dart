@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:louseng/constants/colors.dart';
-import 'package:louseng/views/pages/entry.dart';
+import 'package:yeeSang/constants/colors.dart';
+import 'package:yeeSang/views/pages/entry.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {

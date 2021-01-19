@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:louseng/data/models/user.dart';
+import 'package:yeeSang/data/models/user.dart';
 
 const _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 

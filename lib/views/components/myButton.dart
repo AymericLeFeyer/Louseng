@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:louseng/constants/colors.dart';
+import 'package:yeeSang/constants/colors.dart';
 
 class MyButton extends StatelessWidget {
   String title;
@@ -13,7 +13,7 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-      color: MyTheme.light.primaryColor,
+      color: MyTheme.light.accentColor,
       onPressed: onPressed,
       elevation: 16,
       shape:
@@ -27,12 +27,13 @@ class MyButton extends StatelessWidget {
               Icon(
                 icon,
                 size: 48,
-                color: Colors.white,
+                color: MyTheme.light.primaryColor,
               ),
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style:
+                    TextStyle(fontSize: 18, color: MyTheme.light.primaryColor),
               )
             ],
           ),

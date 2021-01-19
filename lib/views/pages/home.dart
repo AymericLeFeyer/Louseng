@@ -1,12 +1,13 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:louseng/constants/colors.dart';
-import 'package:louseng/controllers/firebaseMessaging.dart';
-import 'package:louseng/data/models/family.dart';
-import 'package:louseng/data/models/user.dart';
-import 'package:louseng/data/provider/firebaseStorage.dart';
-import 'package:louseng/views/components/title.dart';
+import 'package:yeeSang/constants/colors.dart';
+import 'package:yeeSang/controllers/firebaseMessaging.dart';
+import 'package:yeeSang/data/models/family.dart';
+import 'package:yeeSang/data/models/user.dart';
+import 'package:yeeSang/data/provider/firebaseStorage.dart';
+import 'package:yeeSang/views/components/title.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class HomeView extends StatefulWidget {
@@ -56,10 +57,8 @@ class _HomeViewState extends State<HomeView> {
       body: Container(
         height: Get.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.yellow, Colors.red])),
+            image: DecorationImage(
+                image: AssetImage("assets/background.jpg"), fit: BoxFit.cover)),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -68,17 +67,23 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 24),
-                  child: MyTitle(title: "Let's stir the dish !"),
+                  child: MyTitle(title: "Let's Lou Yee Sang !"),
                 ),
-                Text(
-                  "The dish has already been stired ${Family.current.n} times.",
-                  style: TextStyle(
-                      fontSize: 20, color: MyTheme.light.primaryColor),
+                MyTitle(title: "HUAT AH!"),
+                BorderedText(
+                  strokeWidth: 5,
+                  child: Text(
+                    "The dish has already been stired ${Family.current.n} times.",
+                    style: TextStyle(
+                        fontSize: 20, color: MyTheme.light.accentColor),
+                  ),
                 ),
-                Text(
-                  "Give this code to your family : ${Family.current.code}",
-                  style: TextStyle(
-                      fontSize: 20, color: MyTheme.light.primaryColor),
+                BorderedText(
+                  child: Text(
+                    "Give this code to your family : ${Family.current.code}",
+                    style: TextStyle(
+                        fontSize: 20, color: MyTheme.light.accentColor),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
