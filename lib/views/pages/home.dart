@@ -1,6 +1,7 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_gifimage/flutter_gifimage.dart';
 import 'package:get/get.dart';
 import 'package:yeeSang/constants/colors.dart';
 import 'package:yeeSang/controllers/firebaseMessaging.dart';
@@ -15,7 +16,9 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
+  GifController controller;
+
   @override
   Widget build(BuildContext context) {
     initState() {
@@ -26,9 +29,16 @@ class _HomeViewState extends State<HomeView> {
       Storage.homeview = refresh;
 
       Messaging.sendNotif(Family.current);
+
+      controller = GifController(vsync: this);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        controller.repeat(min: 0, max: 53, period: Duration(milliseconds: 200));
+      });
+      super.initState();
     }
 
     Messaging.start();
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -87,19 +97,25 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
-                  child: RawMaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        Family.current.n++;
+                  child: Container(
+                    width: Get.width,
+                    height: Get.width,
+                    child: RawMaterialButton(
+                      onPressed: () {
+                        setState(() {
+                          Family.current.n++;
 
-                        Family.current.members[User.current.index].n += 1;
+                          Family.current.members[User.current.index].n += 1;
 
-                        Storage.write(Family.current);
+                          Storage.write(Family.current);
 
-                        Messaging.sendNotif(Family.current);
-                      });
-                    },
-                    child: Image.asset("assets/louseng.jpg"),
+                          Messaging.sendNotif(Family.current);
+                        });
+                      },
+                      child: Image(
+                        image: AssetImage("assets/dish.gif"),
+                      ),
+                    ),
                   ),
                 ),
                 Stack(
