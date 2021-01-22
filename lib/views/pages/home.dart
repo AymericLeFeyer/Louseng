@@ -1,7 +1,8 @@
+import 'dart:async';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gifimage/flutter_gifimage.dart';
 import 'package:get/get.dart';
 import 'package:yeeSang/constants/colors.dart';
 import 'package:yeeSang/controllers/firebaseMessaging.dart';
@@ -9,7 +10,7 @@ import 'package:yeeSang/data/models/family.dart';
 import 'package:yeeSang/data/models/user.dart';
 import 'package:yeeSang/data/provider/firebaseStorage.dart';
 import 'package:yeeSang/views/components/title.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:video_player/video_player.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -17,7 +18,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
-  GifController controller;
+  var _controller = VideoPlayerController.asset('assets/video.mp4')
+    ..initialize();
+
+  var _now = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +34,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
       Messaging.sendNotif(Family.current);
 
-      controller = GifController(vsync: this);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        controller.repeat(min: 0, max: 53, period: Duration(milliseconds: 200));
-      });
       super.initState();
     }
 
@@ -101,21 +101,30 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     width: Get.width,
                     height: Get.width,
                     child: RawMaterialButton(
-                      onPressed: () {
-                        setState(() {
-                          Family.current.n++;
+                        onPressed: () {
+                          Duration difference = DateTime.now().difference(_now);
 
-                          Family.current.members[User.current.index].n += 1;
+                          if (difference.inMilliseconds > 1000) {
+                            setState(() {
+                              // Reset now
+                              _now = DateTime.now();
 
-                          Storage.write(Family.current);
+                              // Increase counters
+                              Family.current.n++;
+                              Family.current.members[User.current.index].n += 1;
 
-                          Messaging.sendNotif(Family.current);
-                        });
-                      },
-                      child: Image(
-                        image: AssetImage("assets/dish.gif"),
-                      ),
-                    ),
+                              // Refresh the db
+                              Storage.write(Family.current);
+
+                              // Send the notif
+                              Messaging.sendNotif(Family.current);
+
+                              // Play the video
+                              playVideo();
+                            });
+                          }
+                        },
+                        child: VideoPlayer(_controller)),
                   ),
                 ),
                 Stack(
@@ -189,5 +198,27 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+  }
+
+  void playVideo() {
+    // Pause the video
+    _controller.pause();
+    // Start the video
+    _controller.play();
+    startTimeout();
+  }
+
+  startTimeout() {
+    var duration = const Duration(seconds: 1);
+    return new Timer(duration, handleTimeout);
+  }
+
+  void handleTimeout() {
+    _controller.pause();
   }
 }
