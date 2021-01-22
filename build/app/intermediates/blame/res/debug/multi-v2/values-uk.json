@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/aymeric/Git/Perso/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-uk/values-uk.xml",
+            "outputFile": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-uk/values-uk.xml",
             "map": [
                 {
                     "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/eea880a57790a14b2c0436501fe4ffe7/jetified-play-services-basement-17.0.0/res/values-uk/values.xml",

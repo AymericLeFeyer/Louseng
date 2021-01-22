@@ -29,41 +29,58 @@ class _EntryViewState extends State<EntryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/background.jpg"),
-                  fit: BoxFit.cover)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BorderedText(
-                strokeWidth: 6.0,
-                child: Text(
-                  "Yee Sang",
-                  style: TextStyle(
-                      color: MyTheme.light.accentColor,
-                      fontSize: 72,
-                      fontFamily: 'AsianHero'),
-                ),
-              ),
-              Avatar(),
-              Row(
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/background.jpg"),
+                      fit: BoxFit.cover)),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  MyButton(
-                      title: "Create \na new dish",
-                      onPressed: createDish,
-                      icon: Icons.add),
-                  MyButton(
-                      title: "Join \nmy family",
-                      onPressed: () => joinDish(context),
-                      icon: Icons.group),
+                  BorderedText(
+                    strokeWidth: 6.0,
+                    child: Text(
+                      "Yee Sang",
+                      style: TextStyle(
+                          color: MyTheme.light.accentColor,
+                          fontSize: 72,
+                          fontFamily: 'AsianHero'),
+                    ),
+                  ),
+                  Avatar(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      MyButton(
+                          title: "Create \na new dish",
+                          onPressed: createDish,
+                          icon: Icons.add),
+                      MyButton(
+                          title: "Join \nmy family",
+                          onPressed: () => joinDish(context),
+                          icon: Icons.group),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: BorderedText(
+                strokeWidth: 3.0,
+                child: Text(
+                  "by Cindy Cheok",
+                  style: TextStyle(
+                      color: MyTheme.light.accentColor,
+                      fontSize: 24,
+                      fontFamily: 'Belgates'),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

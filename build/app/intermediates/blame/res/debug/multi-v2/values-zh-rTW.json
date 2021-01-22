@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/aymeric/Git/Perso/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/values-zh-rTW/values.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/aymeric/Git/Perso/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-bn/values-bn.xml",
+            "outputFile": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-bn/values-bn.xml",
             "map": [
                 {
                     "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/fcd188b91ef5eb6fde54d777c61bb4b1/jetified-firebase-messaging-21.0.1/res/values-bn/values.xml",

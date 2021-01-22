@@ -71,9 +71,9 @@ flutter:
     - family: AsianHero
       fonts:
         - asset: assets/fonts/asianHero.ttf
-    - family: AsianFood
+    - family: Belgates
       fonts:
-        - asset: assets/fonts/asianFood.ttf
+        - asset: assets/fonts/belgatesScript.ttf
 
   #
   # For details regarding fonts from package dependencies,

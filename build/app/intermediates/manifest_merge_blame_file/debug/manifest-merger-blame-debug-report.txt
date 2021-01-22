@@ -12,13 +12,13 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:51:5-66
-14-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:51:22-64
+14-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:51:5-66
+14-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:51:22-64
 15    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
-16    <!-- <uses-sdk android:minSdkVersion="14" /> -->
+16    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:13:5-79
-17-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:13:22-76
+17-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:26:5-79
+17-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:26:22-76
 18    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
 18-->[com.google.firebase:firebase-iid:21.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/81bc976a903d964a4896ed2092b73241/firebase-iid-21.0.1/AndroidManifest.xml:24:5-68
 18-->[com.google.firebase:firebase-iid:21.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/81bc976a903d964a4896ed2092b73241/firebase-iid-21.0.1/AndroidManifest.xml:24:22-65
@@ -36,30 +36,30 @@
 26         FlutterApplication and put your custom class here.
 27    -->
 28    <application
-28-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:8:5-50:19
+28-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:8:5-50:19
 29        android:name="io.flutter.app.FlutterApplication"
-29-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:9:9-57
+29-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:9:9-57
 30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 30-->[androidx.core:core:1.1.0] /home/aymeric/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/AndroidManifest.xml:24:18-86
 31        android:debuggable="true"
 32        android:icon="@mipmap/ic_launcher"
-32-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:11:9-43
+32-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:11:9-43
 33        android:label="louseng" >
-33-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:10:9-32
+33-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:10:9-32
 34        <activity
-34-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:12:9-44:20
+34-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:12:9-44:20
 35            android:name="fr.aypics.louseng.MainActivity"
-35-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:13:13-41
+35-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:13:13-41
 36            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-36-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:16:13-163
+36-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:16:13-163
 37            android:hardwareAccelerated="true"
-37-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:17:13-47
+37-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:17:13-47
 38            android:launchMode="singleTop"
-38-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:14:13-43
+38-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:14:13-43
 39            android:theme="@style/LaunchTheme"
-39-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:15:13-47
+39-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:15:13-47
 40            android:windowSoftInputMode="adjustResize" >
-40-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:18:13-55
+40-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:18:13-55
 41
 42            <!--
 43                 Specifies an Android theme to apply to this Activity as soon as
@@ -68,11 +68,11 @@
 46                 to determine the Window background behind the Flutter UI.
 47            -->
 48            <meta-data
-48-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:23:13-26:17
+48-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:23:13-26:17
 49                android:name="io.flutter.embedding.android.NormalTheme"
-49-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:24:15-70
+49-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:24:15-70
 50                android:resource="@style/NormalTheme" />
-50-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:25:15-52
+50-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:25:15-52
 51            <!--
 52                 Displays an Android View that continues showing the launch screen
 53                 Drawable until Flutter paints its first frame, then this splash
@@ -81,31 +81,31 @@
 56                 Flutter's first frame.
 57            -->
 58            <meta-data
-58-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:32:13-35:17
+58-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:32:13-35:17
 59                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-59-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:33:15-79
+59-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:33:15-79
 60                android:resource="@drawable/launch_background" />
-60-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:34:15-61
+60-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:34:15-61
 61
 62            <intent-filter>
-62-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:36:13-39:29
+62-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:36:13-39:29
 63                <action android:name="android.intent.action.MAIN" />
-63-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:37:17-68
-63-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:37:25-66
+63-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:37:17-68
+63-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:37:25-66
 64
 65                <category android:name="android.intent.category.LAUNCHER" />
-65-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:38:17-76
-65-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:38:27-74
+65-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:38:17-76
+65-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:38:27-74
 66            </intent-filter>
 67            <intent-filter>
-67-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:40:13-43:29
+67-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:40:13-43:29
 68                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
-68-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:41:15-67
-68-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:41:23-64
+68-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:41:15-67
+68-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:41:23-64
 69
 70                <category android:name="android.intent.category.DEFAULT" />
-70-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:42:15-74
-70-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:42:25-71
+70-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:42:15-74
+70-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:42:25-71
 71            </intent-filter>
 72        </activity>
 73        <!--
@@ -113,56 +113,56 @@
 75             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 76        -->
 77        <meta-data
-77-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:47:9-49:33
+77-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:47:9-49:33
 78            android:name="flutterEmbedding"
-78-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:48:13-44
+78-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:48:13-44
 79            android:value="2" />
-79-->/home/aymeric/Git/Perso/Louseng/android/app/src/main/AndroidManifest.xml:49:13-30
+79-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:49:13-30
 80
 81        <service
-81-->[:firebase_storage] /home/aymeric/Git/Perso/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+81-->[:firebase_storage] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 82            android:name="com.google.firebase.components.ComponentDiscoveryService"
-82-->[:firebase_storage] /home/aymeric/Git/Perso/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
+82-->[:firebase_storage] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
 83            android:directBootAware="true"
 83-->[com.google.firebase:firebase-common:19.5.0] /home/aymeric/.gradle/caches/transforms-2/files-2.1/b4a59844c4065582fc619c95cc9f7321/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
 84            android:exported="false" >
-84-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:19:13-37
+84-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:32:13-37
 85            <meta-data
-85-->[:firebase_storage] /home/aymeric/Git/Perso/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+85-->[:firebase_storage] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
-86-->[:firebase_storage] /home/aymeric/Git/Perso/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-126
+86-->[:firebase_storage] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-126
 87                android:value="com.google.firebase.components.ComponentRegistrar" />
-87-->[:firebase_storage] /home/aymeric/Git/Perso/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+87-->[:firebase_storage] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 88            <meta-data
-88-->[:cloud_firestore] /home/aymeric/Git/Perso/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+88-->[:cloud_firestore] /home/aymeric/Git/Perso/Fiverr/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 89                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-89-->[:cloud_firestore] /home/aymeric/Git/Perso/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
+89-->[:cloud_firestore] /home/aymeric/Git/Perso/Fiverr/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
 90                android:value="com.google.firebase.components.ComponentRegistrar" />
-90-->[:cloud_firestore] /home/aymeric/Git/Perso/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+90-->[:cloud_firestore] /home/aymeric/Git/Perso/Fiverr/Louseng/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 91            <meta-data
-91-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-16:85
+91-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-16:85
 92                android:name="com.google.firebase.components:io.flutter.plugins.firebasemessaging.FlutterFirebaseAppRegistrar"
-92-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-127
+92-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-127
 93                android:value="com.google.firebase.components.ComponentRegistrar" />
-93-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-82
+93-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-82
 94            <meta-data
-94-->[:firebase_core] /home/aymeric/Git/Perso/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+94-->[:firebase_core] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 95                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-95-->[:firebase_core] /home/aymeric/Git/Perso/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+95-->[:firebase_core] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
 96                android:value="com.google.firebase.components.ComponentRegistrar" />
-96-->[:firebase_core] /home/aymeric/Git/Perso/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+96-->[:firebase_core] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 97            <meta-data
-97-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:20:13-22:85
-98                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-98-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:21:17-111
+97-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:33:13-35:85
+98                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+98-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:34:17-107
 99                android:value="com.google.firebase.components.ComponentRegistrar" />
-99-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:22:17-82
+99-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:35:17-82
 100            <meta-data
-100-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:33:13-35:85
-101                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-101-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:34:17-107
+100-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:20:13-22:85
+101                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+101-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:21:17-111
 102                android:value="com.google.firebase.components.ComponentRegistrar" />
-102-->[com.google.firebase:firebase-storage:19.2.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/c6471b34f5c4b185478ebd87c4df562f/firebase-storage-19.2.1/AndroidManifest.xml:35:17-82
+102-->[com.google.firebase:firebase-firestore:22.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/41539df0ae0ce032a0d6b06ebdecc6b5/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:22:17-82
 103            <meta-data
 103-->[com.google.firebase:firebase-messaging:21.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/fcd188b91ef5eb6fde54d777c61bb4b1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
 104                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
@@ -205,13 +205,13 @@
 124-->[com.google.firebase:firebase-common:19.5.0] /home/aymeric/.gradle/caches/transforms-2/files-2.1/b4a59844c4065582fc619c95cc9f7321/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
 125        </service>
 126        <service android:name="io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService" >
-126-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-126-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-101
+126-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+126-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-101
 127            <intent-filter>
-127-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
+127-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
 128                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-128-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
-128-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
+128-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
+128-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
 129            </intent-filter>
 130        </service>
 131        <!--
@@ -227,10 +227,10 @@
 138            android:exported="false" >
 138-->[com.google.firebase:firebase-messaging:21.0.1] /home/aymeric/.gradle/caches/transforms-2/files-2.1/fcd188b91ef5eb6fde54d777c61bb4b1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
 139            <intent-filter android:priority="-500" >
-139-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
+139-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
 140                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-140-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
-140-->[:firebase_messaging] /home/aymeric/Git/Perso/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
+140-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
+140-->[:firebase_messaging] /home/aymeric/Git/Perso/Fiverr/Louseng/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
 141            </intent-filter>
 142        </service>
 143

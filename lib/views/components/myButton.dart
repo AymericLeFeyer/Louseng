@@ -19,7 +19,7 @@ class MyButton extends StatelessWidget {
       shape:
           RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0)),
       child: Container(
-        width: Get.size.width / 4,
+        width: Get.size.width / 3,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
