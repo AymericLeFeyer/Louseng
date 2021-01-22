@@ -20,7 +20,12 @@ class User {
   }
 
   Map toJson() {
-    return {'name': name, 'n': n, 'index': index, 'token': token};
+    return {
+      'name': name,
+      'n': n,
+      'index': index,
+      'token': token,
+    };
   }
 
   void increment() {

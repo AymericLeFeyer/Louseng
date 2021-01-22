@@ -14,36 +14,41 @@ import 'package:video_player/video_player.dart';
 
 class HomeView extends StatefulWidget {
   @override
-  _HomeViewState createState() => _HomeViewState();
+  HomeViewState createState() => HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
+class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   var _controller = VideoPlayerController.asset('assets/video.mp4')
     ..initialize();
 
   var _now = DateTime.now();
 
+  var cooldown = 5000;
+
+  var showProgressBar = false;
+
   @override
-  Widget build(BuildContext context) {
-    initState() {
-      refresh() {
-        setState(() {});
-      }
+  void initState() {
+    Storage.homeview = this;
 
-      Storage.homeview = refresh;
-
-      Messaging.sendNotif(Family.current);
-
-      super.initState();
-    }
+    Messaging.sendNotif(Family.current, 'join');
 
     Messaging.start();
 
+    startTimeoutProgressBar();
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: MyTheme.light.accentColor),
-          onPressed: () => Get.back(),
+          onPressed: () {
+            Get.back();
+          },
           tooltip: "Back to home",
         ),
         title: Text(
@@ -59,7 +64,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               tooltip: "Manually refresh",
               onPressed: () {
                 setState(() {
-                  Storage.refresh();
+                  Storage.refresh(false);
                 });
               })
         ],
@@ -96,7 +101,15 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
+                  child: showProgressBar == true
+                      ? LinearProgressIndicator(
+                          backgroundColor: Colors.red,
+                        )
+                      : Container(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
                   child: Container(
                     width: Get.width,
                     height: Get.width,
@@ -106,10 +119,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             Duration difference =
                                 DateTime.now().difference(_now);
 
-                            if (difference.inMilliseconds > 1000) {
+                            if (difference.inMilliseconds > cooldown) {
                               setState(() {
                                 // Reset now
                                 _now = DateTime.now();
+
+                                startTimeoutProgressBar();
 
                                 // Increase counters
                                 Family.current.n++;
@@ -120,7 +135,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                 Storage.write(Family.current);
 
                                 // Send the notif
-                                Messaging.sendNotif(Family.current);
+                                Messaging.sendNotif(Family.current, 'stir');
 
                                 // Play the video
                                 playVideo();
@@ -210,6 +225,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void playVideo() {
+    print("NOTIF video");
     // Pause the video
     _controller.pause();
     // Start the video
@@ -224,5 +240,20 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   void handleTimeout() {
     _controller.pause();
+  }
+
+  startTimeoutProgressBar() {
+    setState(() {
+      showProgressBar = true;
+    });
+    var duration = Duration(milliseconds: cooldown);
+    print("time :" + duration.toString());
+    return new Timer(duration, handleTimeoutProgressBar);
+  }
+
+  void handleTimeoutProgressBar() {
+    setState(() {
+      showProgressBar = false;
+    });
   }
 }

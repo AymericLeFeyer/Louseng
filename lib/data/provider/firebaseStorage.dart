@@ -13,7 +13,7 @@ class Storage {
   static FirebaseStorage storage = FirebaseStorage.instance;
   static File f;
   static Directory directory;
-  static Function homeview;
+  static HomeViewState homeview;
 
   static void write(Family fa) async {
     directory = await getApplicationDocumentsDirectory();
@@ -46,10 +46,10 @@ class Storage {
     }
   }
 
-  static void refresh() async {
-    print("REFRESHED");
-    getFamily(Family.current.code);
-    homeview();
+  static void refresh(video) async {
+    await getFamily(Family.current.code);
+    homeview.setState(() {});
+    if (video) homeview.playVideo();
   }
 
   static Future<void> getFamily(String code) async {

@@ -21,12 +21,13 @@ class Messaging {
     Storage.write(Family.current);
 
     messaging.configure(onMessage: (Map<String, dynamic> message) async {
-      print("NOTIF RECUE");
-      Storage.refresh();
+      print("NOTIF RECUE : ");
+      String state = (message['data'])['id'].toString();
+      Storage.refresh(state == 'stir' ? true : false);
     });
   }
 
-  static void sendNotif(Family family) async {
+  static void sendNotif(Family family, String type) async {
     for (User u in family.members) {
       if (u.token != User.current.token) {
         await http.post(
@@ -44,7 +45,7 @@ class Messaging {
               'priority': 'high',
               'data': <String, dynamic>{
                 'click_action': 'FLUTTER_NOTIFICATION_CLICK',
-                'id': '1',
+                'id': type,
                 'status': 'done'
               },
               'to': u.token,

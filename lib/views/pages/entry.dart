@@ -122,7 +122,7 @@ void joinDish(BuildContext context) async {
     } else {
       Get.snackbar(
           "Problem with the code", "The code you enter doesn't exists !",
-          colorText: MyTheme.light.primaryColor);
+          colorText: MyTheme.light.accentColor);
     }
   }
 }
@@ -130,7 +130,7 @@ void joinDish(BuildContext context) async {
 bool codeWrote() {
   if (EntryView.code == null || EntryView.code == "") {
     Get.snackbar("What is your code ?", "You need to enter the code before !",
-        colorText: MyTheme.light.primaryColor);
+        colorText: MyTheme.light.accentColor);
     return false;
   } else
     return true;
@@ -139,7 +139,7 @@ bool codeWrote() {
 bool nameWrote() {
   if (EntryView.name == null || EntryView.name == "") {
     Get.snackbar("Who are you ?", "You need to put your name before !",
-        colorText: MyTheme.light.primaryColor);
+        colorText: MyTheme.light.accentColor);
     return false;
   } else
     return true;
@@ -159,8 +159,9 @@ Future<void> displayTextInputDialog(BuildContext context) async {
               Text(
                   "Here you can enter a code. \nAsk it to your family and let's stir the dish !"),
               TextField(
+                textCapitalization: TextCapitalization.characters,
                 onChanged: (value) {
-                  EntryView.code = value;
+                  EntryView.code = value.toUpperCase();
                 },
                 decoration: InputDecoration(hintText: "CODE"),
               ),
