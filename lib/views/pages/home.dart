@@ -100,28 +100,32 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   child: Container(
                     width: Get.width,
                     height: Get.width,
-                    child: RawMaterialButton(
-                        onPressed: () {
-                          Duration difference = DateTime.now().difference(_now);
+                    child: GestureDetector(
+                        onVerticalDragUpdate: (details) {
+                          if (details.delta.dy < 0) {
+                            Duration difference =
+                                DateTime.now().difference(_now);
 
-                          if (difference.inMilliseconds > 1000) {
-                            setState(() {
-                              // Reset now
-                              _now = DateTime.now();
+                            if (difference.inMilliseconds > 1000) {
+                              setState(() {
+                                // Reset now
+                                _now = DateTime.now();
 
-                              // Increase counters
-                              Family.current.n++;
-                              Family.current.members[User.current.index].n += 1;
+                                // Increase counters
+                                Family.current.n++;
+                                Family.current.members[User.current.index].n +=
+                                    1;
 
-                              // Refresh the db
-                              Storage.write(Family.current);
+                                // Refresh the db
+                                Storage.write(Family.current);
 
-                              // Send the notif
-                              Messaging.sendNotif(Family.current);
+                                // Send the notif
+                                Messaging.sendNotif(Family.current);
 
-                              // Play the video
-                              playVideo();
-                            });
+                                // Play the video
+                                playVideo();
+                              });
+                            }
                           }
                         },
                         child: VideoPlayer(_controller)),
