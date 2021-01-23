@@ -97,6 +97,7 @@ void createDish() async {
 
     Family.current = new Family(n: 0);
     Family.current.generateCode();
+    Family.current.generateLucky();
     Family.current.members = new List<User>();
     Family.current.members.add(User.current);
 

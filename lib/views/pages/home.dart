@@ -23,7 +23,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   var _now = DateTime.now();
 
-  var cooldown = 5000;
+  var cooldown = 500;
 
   var showProgressBar = false;
 
@@ -42,181 +42,205 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: MyTheme.light.accentColor),
-          onPressed: () {
-            Get.back();
-          },
-          tooltip: "Back to home",
-        ),
-        title: Text(
-          "Yee Sang",
-          style: TextStyle(color: MyTheme.light.accentColor),
-        ),
-        actions: [
-          IconButton(
-              icon: Icon(
-                Icons.refresh,
-                color: MyTheme.light.accentColor,
-              ),
-              tooltip: "Manually refresh",
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back, color: MyTheme.light.accentColor),
               onPressed: () {
-                setState(() {
-                  Storage.refresh(false);
-                });
-              })
-        ],
-      ),
-      body: Container(
-        height: Get.height,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/background.jpg"), fit: BoxFit.cover)),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 24),
-                  child: MyTitle(title: "Let's Lou Yee Sang !"),
-                ),
-                MyTitle(title: "HUAT AH!"),
-                BorderedText(
-                  strokeWidth: 5,
-                  child: Text(
-                    "The dish has already been stired ${Family.current.n} times.",
-                    style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.accentColor),
-                  ),
-                ),
-                BorderedText(
-                  child: Text(
-                    "Give this code to your family : ${Family.current.code}",
-                    style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.accentColor),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
-                  child: showProgressBar == true
-                      ? LinearProgressIndicator(
-                          backgroundColor: Colors.red,
-                        )
-                      : Container(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
-                  child: Container(
-                    width: Get.width,
-                    height: Get.width,
-                    child: GestureDetector(
-                        onVerticalDragUpdate: (details) {
-                          if (details.delta.dy < 0) {
-                            Duration difference =
-                                DateTime.now().difference(_now);
-
-                            if (difference.inMilliseconds > cooldown) {
-                              setState(() {
-                                // Reset now
-                                _now = DateTime.now();
-
-                                startTimeoutProgressBar();
-
-                                // Increase counters
-                                Family.current.n++;
-                                Family.current.members[User.current.index].n +=
-                                    1;
-
-                                // Refresh the db
-                                Storage.write(Family.current);
-
-                                // Send the notif
-                                Messaging.sendNotif(Family.current, 'stir');
-
-                                // Play the video
-                                playVideo();
-                              });
-                            }
-                          }
-                        },
-                        child: VideoPlayer(_controller)),
-                  ),
-                ),
-                Stack(
-                  children: <Widget>[
-                    Center(
-                      child: Card(
-                        elevation: 16,
-                        child: Container(
-                          width: Get.width - 40,
-                          child: Center(
-                              child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 36.0),
-                                    child: Text(
-                                      "${Family.current.members.length} joined",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: MyTheme.light.primaryColor,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              ListView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: Family.current.members.length,
-                                itemBuilder: (context, index) {
-                                  final item = Family.current.members[index];
-
-                                  return ListTile(
-                                    title: Text(item.name,
-                                        style: TextStyle(
-                                            color: MyTheme.light.primaryColor,
-                                            fontWeight: FontWeight.bold)),
-                                    subtitle: Text("Number of stir : ${item.n}",
-                                        style: TextStyle(
-                                            color: MyTheme.light.primaryColor)),
-                                  );
-                                },
-                              ),
-                            ],
-                          )),
-                        ),
-                      ),
-                    ),
-                    FractionalTranslation(
-                      translation: Offset(0.0, -0.4),
-                      child: Align(
-                        child: CircleAvatar(
-                          radius: 25.0,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                          ),
-                          backgroundColor: MyTheme.light.primaryColor,
-                        ),
-                        alignment: FractionalOffset(0.5, 0.0),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                Get.back();
+              },
+              tooltip: "Back to home",
             ),
+            title: Text(
+              "Yee Sang",
+              style: TextStyle(color: MyTheme.light.accentColor),
+            ),
+            actions: [
+              IconButton(
+                  icon: Icon(
+                    Icons.refresh,
+                    color: MyTheme.light.accentColor,
+                  ),
+                  tooltip: "Manually refresh",
+                  onPressed: () {
+                    setState(() {
+                      Storage.refresh(false);
+                    });
+                  })
+            ],
+            bottom: TabBar(tabs: [
+              Tab(icon: Icon(Icons.food_bank)),
+              Tab(icon: Icon(Icons.group))
+            ]),
           ),
-        ),
-      ),
-    );
+          body: TabBarView(
+            children: [
+              Container(
+                height: Get.height,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/background.jpg"),
+                        fit: BoxFit.cover)),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24),
+                          child: MyTitle(title: "Let's Lou Yee Sang !"),
+                        ),
+                        MyTitle(title: "HUAT AH!"),
+                        BorderedText(
+                          strokeWidth: 5,
+                          child: Text(
+                            "The dish has already been stired ${Family.current.n} times.",
+                            style: TextStyle(
+                                fontSize: 20, color: MyTheme.light.accentColor),
+                          ),
+                        ),
+                        BorderedText(
+                          child: Text(
+                            "Give this code to your family : ${Family.current.code}",
+                            style: TextStyle(
+                                fontSize: 20, color: MyTheme.light.accentColor),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
+                          child: showProgressBar == true
+                              ? LinearProgressIndicator(
+                                  backgroundColor: Colors.red,
+                                )
+                              : Container(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
+                          child: Container(
+                            width: Get.width,
+                            height: Get.width,
+                            child: GestureDetector(
+                                onVerticalDragUpdate: (details) {
+                                  if (details.delta.dy < 0) {
+                                    Duration difference =
+                                        DateTime.now().difference(_now);
+
+                                    if (difference.inMilliseconds > cooldown) {
+                                      setState(() {
+                                        // Reset now
+                                        _now = DateTime.now();
+
+                                        startTimeoutProgressBar();
+
+                                        // Increase counters
+                                        Family.current.n++;
+                                        Family.current
+                                            .members[User.current.index].n += 1;
+
+                                        // Refresh the db
+                                        Storage.write(Family.current);
+
+                                        // Send the notif
+                                        Messaging.sendNotif(
+                                            Family.current, 'stir');
+
+                                        // Play the video
+                                        playVideo();
+                                      });
+                                    }
+                                  }
+                                },
+                                child: VideoPlayer(_controller)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                height: Get.height,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/background.jpg"),
+                        fit: BoxFit.cover)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Stack(
+                    children: <Widget>[
+                      Center(
+                        child: Card(
+                          elevation: 16,
+                          child: Container(
+                            width: Get.width - 40,
+                            child: Center(
+                                child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 36.0),
+                                      child: Text(
+                                        "${Family.current.members.length} joined",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: MyTheme.light.primaryColor,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: Family.current.members.length,
+                                  itemBuilder: (context, index) {
+                                    final item = Family.current.members[index];
+
+                                    return ListTile(
+                                      title: Text(item.name,
+                                          style: TextStyle(
+                                              color: MyTheme.light.primaryColor,
+                                              fontWeight: FontWeight.bold)),
+                                      subtitle: Text(
+                                          "Number of stir : ${item.n}",
+                                          style: TextStyle(
+                                              color:
+                                                  MyTheme.light.primaryColor)),
+                                    );
+                                  },
+                                ),
+                              ],
+                            )),
+                          ),
+                        ),
+                      ),
+                      FractionalTranslation(
+                        translation: Offset(0.0, -0.4),
+                        child: Align(
+                          child: CircleAvatar(
+                            radius: 25.0,
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                            ),
+                            backgroundColor: MyTheme.light.primaryColor,
+                          ),
+                          alignment: FractionalOffset(0.5, 0.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ));
   }
 
   @override
