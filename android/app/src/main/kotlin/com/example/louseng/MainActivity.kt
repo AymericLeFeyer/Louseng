@@ -1,4 +1,4 @@
-package fr.aypics.louseng
+package fr.aypics.yeesang
 
 import io.flutter.embedding.android.FlutterActivity
 

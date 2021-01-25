@@ -11,6 +11,7 @@ import 'package:yeeSang/data/models/user.dart';
 import 'package:yeeSang/data/provider/firebaseStorage.dart';
 import 'package:yeeSang/views/components/title.dart';
 import 'package:video_player/video_player.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -51,15 +52,26 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    // Storage service
     Storage.homeview = this;
 
+    // Tell the family you're here !
     Messaging.sendNotif(Family.current, 'join');
 
+    // Messaging service
     Messaging.start();
 
+    // Progress bar service
     startTimeoutProgressBar();
 
+    // First frames
     playVideo();
+
+    // Music
+    var _assetsAudioPlayer = AssetsAudioPlayer();
+    _assetsAudioPlayer.open(Audio("assets/music.mp3"),
+        autoStart: true, showNotification: true);
+    _assetsAudioPlayer.playOrPause();
 
     super.initState();
   }
@@ -95,8 +107,12 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   })
             ],
             bottom: TabBar(tabs: [
-              Tab(icon: Icon(Icons.food_bank)),
-              Tab(icon: Icon(Icons.group))
+              Tab(
+                  icon: Icon(
+                Icons.home,
+                color: MyTheme.light.accentColor,
+              )),
+              Tab(icon: Icon(Icons.group, color: MyTheme.light.accentColor))
             ]),
           ),
           body: TabBarView(
@@ -122,6 +138,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           strokeWidth: 5,
                           child: Text(
                             "The dish has already been stired ${Family.current.n} times.",
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 20, color: MyTheme.light.accentColor),
                           ),
@@ -131,6 +148,13 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             "Give this code to your family : ${Family.current.code}",
                             style: TextStyle(
                                 fontSize: 20, color: MyTheme.light.accentColor),
+                          ),
+                        ),
+                        BorderedText(
+                          child: Text(
+                            "Swipe it up !",
+                            style: TextStyle(
+                                fontSize: 24, color: MyTheme.light.accentColor),
                           ),
                         ),
                         Padding(
@@ -195,6 +219,36 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                     child: VideoPlayer(_controller))),
                           ),
                         ),
+                        timeIndex >= 18
+                            ? RaisedButton(
+                                color: MyTheme.light.accentColor,
+                                textColor: MyTheme.light.primaryColor,
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                      title: "Lucky Number",
+                                      titleStyle: TextStyle(
+                                          color: MyTheme.light.accentColor,
+                                          fontSize: 30),
+                                      backgroundColor:
+                                          MyTheme.light.primaryColor,
+                                      content: Text(
+                                        Family.current.lucky,
+                                        style: TextStyle(
+                                            fontSize: 26,
+                                            color: MyTheme.light.accentColor),
+                                      ));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Lucky number",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ))
+                            : Container()
                       ],
                     ),
                   ),
@@ -214,6 +268,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         child: Card(
                           elevation: 16,
                           child: Container(
+                            height: Get.width,
                             width: Get.width - 40,
                             child: Center(
                                 child: Column(
@@ -223,7 +278,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 36.0),
+                                      padding: const EdgeInsets.only(
+                                          top: 36.0, bottom: 16),
                                       child: Text(
                                         "${Family.current.members.length} joined",
                                         style: TextStyle(
@@ -234,25 +290,28 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                     ),
                                   ],
                                 ),
-                                ListView.builder(
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: Family.current.members.length,
-                                  itemBuilder: (context, index) {
-                                    final item = Family.current.members[index];
+                                Expanded(
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: Family.current.members.length,
+                                    itemBuilder: (context, index) {
+                                      final item =
+                                          Family.current.members[index];
 
-                                    return ListTile(
-                                      title: Text(item.name,
-                                          style: TextStyle(
-                                              color: MyTheme.light.primaryColor,
-                                              fontWeight: FontWeight.bold)),
-                                      subtitle: Text(
-                                          "Number of stir : ${item.n}",
-                                          style: TextStyle(
-                                              color:
-                                                  MyTheme.light.primaryColor)),
-                                    );
-                                  },
+                                      return ListTile(
+                                        title: Text(item.name,
+                                            style: TextStyle(
+                                                color:
+                                                    MyTheme.light.primaryColor,
+                                                fontWeight: FontWeight.bold)),
+                                        subtitle: Text(
+                                            "Number of stir : ${item.n}",
+                                            style: TextStyle(
+                                                color: MyTheme
+                                                    .light.primaryColor)),
+                                      );
+                                    },
+                                  ),
                                 ),
                               ],
                             )),
@@ -308,6 +367,11 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   void handleTimeout() {
     _controller.pause();
+    if (timeIndex == 18) {
+      Get.snackbar(
+          "The dish is ready !", "You can now discover your lucky number !",
+          colorText: MyTheme.light.accentColor);
+    }
   }
 
   startTimeoutProgressBar() {

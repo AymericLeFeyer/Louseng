@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "292508943527",
-    "project_id": "louseng-f96f0",
-    "storage_bucket": "louseng-f96f0.appspot.com"
+    "project_id": "yeesang-f96f0",
+    "storage_bucket": "yeesang-f96f0.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:292508943527:android:7a59001fcaf41da1038782",
         "android_client_info": {
-          "package_name": "fr.aypics.louseng"
+          "package_name": "fr.aypics.yeesang"
         }
       },
       "oauth_client": [

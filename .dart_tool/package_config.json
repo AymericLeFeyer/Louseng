@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "assets_audio_player",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/assets_audio_player-2.0.13+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
+      "name": "assets_audio_player_web",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/assets_audio_player_web-2.0.13+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "async",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0-nullsafety.1",
       "packageUri": "lib/",
@@ -60,6 +72,18 @@
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0-nullsafety.3",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "convert",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "1.17"
+    },
+    {
+      "name": "crypto",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
     },
     {
       "name": "cupertino_icons",
@@ -242,6 +266,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "rxdart",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.24.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -290,6 +320,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///home/aymeric/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0-nullsafety.3",
       "packageUri": "lib/",
@@ -332,7 +368,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-22T19:30:49.415196Z",
+  "generated": "2021-01-25T21:31:58.012676Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }
