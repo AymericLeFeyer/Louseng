@@ -116,7 +116,7 @@ void joinDish(BuildContext context) async {
     if (EntryView.code == "" || EntryView.code == null) {
       Get.snackbar(
           "Problem with the code", "You must enter a code to continue !",
-          colorText: MyTheme.light.primaryColor);
+          colorText: MyTheme.light.accentColor);
     } else if (await Storage.checkIfExistAndJoin(EntryView.code)) {
       print(EntryView.code);
       Get.to(HomeView());

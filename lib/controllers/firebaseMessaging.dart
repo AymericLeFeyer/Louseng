@@ -23,7 +23,8 @@ class Messaging {
     messaging.configure(onMessage: (Map<String, dynamic> message) async {
       print("NOTIF RECUE : ");
       String state = (message['data'])['id'].toString();
-      Storage.refresh(state == 'stir' ? true : false);
+      String name = (message['data'])['name'].toString();
+      Storage.refresh(state == 'stir' ? true : false, name);
     });
   }
 
@@ -46,6 +47,7 @@ class Messaging {
               'data': <String, dynamic>{
                 'click_action': 'FLUTTER_NOTIFICATION_CLICK',
                 'id': type,
+                'name': User.current.name,
                 'status': 'done'
               },
               'to': u.token,

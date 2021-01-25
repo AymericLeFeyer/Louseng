@@ -18,13 +18,35 @@ class HomeView extends StatefulWidget {
 }
 
 class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
+  // Video
   var _controller = VideoPlayerController.asset('assets/video.mp4')
     ..initialize();
 
-  var _now = DateTime.now();
-
+  // Time stamps
+  var timeIndex = 0;
+  final times = [
+    4130,
+    1970,
+    1960,
+    1960,
+    1980,
+    1200,
+    1850,
+    1170,
+    1910,
+    1150,
+    1840,
+    1140,
+    1500,
+    1100,
+    1810,
+    1150,
+    1860,
+    2250
+  ];
   var cooldown = 500;
 
+  var _now = DateTime.now();
   var showProgressBar = false;
 
   @override
@@ -36,6 +58,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     Messaging.start();
 
     startTimeoutProgressBar();
+
+    playVideo();
 
     super.initState();
   }
@@ -66,7 +90,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   tooltip: "Manually refresh",
                   onPressed: () {
                     setState(() {
-                      Storage.refresh(false);
+                      Storage.refresh(false, '');
                     });
                   })
             ],
@@ -120,8 +144,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
                           child: Container(
-                            width: Get.width,
-                            height: Get.width,
+                            width: Get.width * 0.9,
+                            height: Get.width * 0.9,
                             child: GestureDetector(
                                 onVerticalDragUpdate: (details) {
                                   if (details.delta.dy < 0) {
@@ -129,6 +153,18 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                         DateTime.now().difference(_now);
 
                                     if (difference.inMilliseconds > cooldown) {
+                                      if (timeIndex < 18) {
+                                        Get.snackbar("The dish is stiring !",
+                                            "You are stiring the dish",
+                                            colorText:
+                                                MyTheme.light.accentColor);
+                                      } else {
+                                        Get.snackbar("The dish is ready !",
+                                            "You can't stir the dish anymore",
+                                            colorText:
+                                                MyTheme.light.accentColor);
+                                      }
+
                                       setState(() {
                                         // Reset now
                                         _now = DateTime.now();
@@ -153,7 +189,10 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                     }
                                   }
                                 },
-                                child: VideoPlayer(_controller)),
+                                child: Container(
+                                    width: Get.width,
+                                    height: Get.width,
+                                    child: VideoPlayer(_controller))),
                           ),
                         ),
                       ],
@@ -249,16 +288,21 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void playVideo() {
-    print("NOTIF video");
-    // Pause the video
-    _controller.pause();
-    // Start the video
-    _controller.play();
-    startTimeout();
+    if (timeIndex < 18) {
+      print("NOTIF video");
+      // Pause the video
+      _controller.pause();
+      // Start the video
+      _controller.play();
+
+      startTimeout(times[timeIndex]);
+
+      timeIndex++;
+    }
   }
 
-  startTimeout() {
-    var duration = const Duration(seconds: 1);
+  startTimeout(int t) {
+    var duration = Duration(milliseconds: t);
     return new Timer(duration, handleTimeout);
   }
 

@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:get/get.dart';
+import 'package:yeeSang/constants/colors.dart';
 import 'package:yeeSang/controllers/firebaseMessaging.dart';
 import 'package:yeeSang/data/models/family.dart';
 import 'package:yeeSang/data/models/user.dart';
@@ -46,10 +48,19 @@ class Storage {
     }
   }
 
-  static void refresh(video) async {
+  static void refresh(video, name) async {
     await getFamily(Family.current.code);
     homeview.setState(() {});
-    if (video) homeview.playVideo();
+    if (video) {
+      homeview.playVideo();
+      Get.snackbar("The dish is stiring !", "$name is stiring the dish !",
+          colorText: MyTheme.light.accentColor);
+    } else {
+      if (name != '') {
+        Get.snackbar("Someone joined !", "$name joined !",
+            colorText: MyTheme.light.accentColor);
+      }
+    }
   }
 
   static Future<void> getFamily(String code) async {
