@@ -40,6 +40,10 @@
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable/common_google_signin_btn_icon_light_normal.xml"
     },
     {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/mipmap-xhdpi_launcher_icon.png.flat",
+        "source": "/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/res/mipmap-xhdpi/launcher_icon.png"
+    },
+    {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/layout_notification_template_big_media_custom.xml.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/dbc71f212c14e03890a98cb89be3c094/media-1.1.0/res/layout/notification_template_big_media_custom.xml"
     },
@@ -52,12 +56,12 @@
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-ldpi-v4/exo_icon_pause.png"
     },
     {
-        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/layout_notification_media_action.xml.flat",
-        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/dbc71f212c14e03890a98cb89be3c094/media-1.1.0/res/layout/notification_media_action.xml"
-    },
-    {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/layout_notification_media_action.xml.flat",
+        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/dbc71f212c14e03890a98cb89be3c094/media-1.1.0/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_edit_mode_logo.xml.flat",
@@ -164,6 +168,10 @@
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/res/layout/notification_template_part_time.xml"
     },
     {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/mipmap-hdpi_launcher_icon.png.flat",
+        "source": "/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/res/mipmap-hdpi/launcher_icon.png"
+    },
+    {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },
@@ -268,6 +276,10 @@
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/mipmap-mdpi_launcher_icon.png.flat",
+        "source": "/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/res/mipmap-mdpi/launcher_icon.png"
+    },
+    {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_exo_icon_circular_play.png.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-xxhdpi-v4/exo_icon_circular_play.png"
     },
@@ -290,6 +302,10 @@
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-ldpi-v4_exo_icon_previous.png.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-ldpi-v4/exo_icon_previous.png"
+    },
+    {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/mipmap-xxxhdpi_launcher_icon.png.flat",
+        "source": "/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/res/mipmap-xxxhdpi/launcher_icon.png"
     },
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_exo_icon_shuffle_off.png.flat",
@@ -442,6 +458,10 @@
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_icon_repeat_all.xml.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-anydpi-v21/exo_icon_repeat_all.xml"
+    },
+    {
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/mipmap-xxhdpi_launcher_icon.png.flat",
+        "source": "/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/res/mipmap-xxhdpi/launcher_icon.png"
     },
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",

@@ -47,10 +47,10 @@
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 31-->[androidx.core:core:1.1.0] /home/aymeric/.gradle/caches/transforms-2/files-2.1/44b1706abe044cd42dcac5be863451ed/core-1.1.0/AndroidManifest.xml:24:18-86
 32        android:debuggable="true"
-33        android:icon="@mipmap/ic_launcher"
-33-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:11:9-43
-34        android:label="yeesang" >
-34-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:10:9-32
+33        android:icon="@mipmap/launcher_icon"
+33-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:11:9-45
+34        android:label="Yee Sang" >
+34-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:10:9-33
 35        <activity
 35-->/home/aymeric/Git/Perso/Fiverr/Louseng/android/app/src/main/AndroidManifest.xml:12:9-44:20
 36            android:name="fr.aypics.yeesang.MainActivity"

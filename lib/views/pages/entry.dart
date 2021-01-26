@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,16 @@ class EntryView extends StatefulWidget {
 }
 
 class _EntryViewState extends State<EntryView> {
+  @override
+  void initState() {
+    // Music
+    var _assetsAudioPlayer = AssetsAudioPlayer();
+    _assetsAudioPlayer.open(Audio("assets/music.mp3"),
+        autoStart: true, showNotification: true);
+    _assetsAudioPlayer.playOrPause();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

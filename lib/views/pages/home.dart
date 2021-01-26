@@ -11,7 +11,6 @@ import 'package:yeeSang/data/models/user.dart';
 import 'package:yeeSang/data/provider/firebaseStorage.dart';
 import 'package:yeeSang/views/components/title.dart';
 import 'package:video_player/video_player.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -66,12 +65,6 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
     // First frames
     playVideo();
-
-    // Music
-    var _assetsAudioPlayer = AssetsAudioPlayer();
-    _assetsAudioPlayer.open(Audio("assets/music.mp3"),
-        autoStart: true, showNotification: true);
-    _assetsAudioPlayer.playOrPause();
 
     super.initState();
   }
