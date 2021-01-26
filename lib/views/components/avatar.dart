@@ -29,8 +29,7 @@ class _AvatarState extends State<Avatar> {
                 child: Center(
                   child: TextField(
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20, color: MyTheme.light.primaryColor),
+                    style: TextStyle(fontSize: 20, color: Colors.blue),
                     onChanged: (value) {
                       EntryView.name = value;
                     },

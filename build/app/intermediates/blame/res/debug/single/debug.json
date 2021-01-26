@@ -348,16 +348,16 @@
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable/common_google_signin_btn_text_disabled.xml"
     },
     {
-        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_icon_repeat_off.xml.flat",
-        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-anydpi-v21/exo_icon_repeat_off.xml"
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_icon_pause.xml.flat",
+        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-anydpi-v21/exo_icon_pause.xml"
     },
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/63333801825fa8fbd9c7151e28fb5ce4/play-services-base-17.0.0/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
-        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_icon_pause.xml.flat",
-        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-anydpi-v21/exo_icon_pause.xml"
+        "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/drawable-anydpi-v21_exo_icon_repeat_off.xml.flat",
+        "source": "/home/aymeric/.gradle/caches/transforms-2/files-2.1/46f4d2f57dff3a9dbdd322716d055f4d/exoplayer-ui-2.11.4/res/drawable-anydpi-v21/exo_icon_repeat_off.xml"
     },
     {
         "merged": "/home/aymeric/Git/Perso/Fiverr/Louseng/build/app/intermediates/res/merged/debug/layout_notification_template_big_media_narrow.xml.flat",

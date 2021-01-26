@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "292508943527",
-    "project_id": "yeesang-f96f0",
-    "storage_bucket": "yeesang-f96f0.appspot.com"
+    "project_number": "911148965062",
+    "project_id": "yeesang-84fb8",
+    "storage_bucket": "yeesang-84fb8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:292508943527:android:7a59001fcaf41da1038782",
+        "mobilesdk_app_id": "1:911148965062:android:083ed0e68dbdfca37ecbc7",
         "android_client_info": {
           "package_name": "fr.aypics.yeesang"
         }
       },
       "oauth_client": [
         {
-          "client_id": "292508943527-v4vrlbuolcl6mj8s9hnp7fsgucudufoa.apps.googleusercontent.com",
+          "client_id": "911148965062-qie34pv58g3do1f5hrk10uums67oviej.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDn8yxn-CvW2eD1SYCpCPkZU0BRTAqJTA4"
+          "current_key": "AIzaSyCce04ehPDWD9Z8ZA9NxtgXRW44Lunn0UU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "292508943527-v4vrlbuolcl6mj8s9hnp7fsgucudufoa.apps.googleusercontent.com",
+              "client_id": "911148965062-qie34pv58g3do1f5hrk10uums67oviej.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
