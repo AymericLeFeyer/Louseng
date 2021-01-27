@@ -46,6 +46,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   ];
   var cooldown = 500;
 
+  var stirNumber = 19;
+
   var _now = DateTime.now();
   var showProgressBar = false;
 
@@ -65,6 +67,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
     // First frames
     playVideo();
+
+    timeIndex = 0;
 
     super.initState();
   }
@@ -127,36 +131,34 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           child: MyTitle(title: "Let's Lou Yee Sang !"),
                         ),
                         MyTitle(title: "HUAT AH!"),
-                        BorderedText(
-                          strokeWidth: 5,
-                          child: Text(
-                            "The dish has already been stired ${Family.current.n} times.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 20, color: MyTheme.light.accentColor),
-                          ),
-                        ),
-                        BorderedText(
-                          child: Text(
-                            "Give this code to your family : ${Family.current.code}",
-                            style: TextStyle(
-                                fontSize: 20, color: MyTheme.light.accentColor),
-                          ),
-                        ),
-                        BorderedText(
-                          child: Text(
-                            "Swipe it up !",
-                            style: TextStyle(
-                                fontSize: 24, color: MyTheme.light.accentColor),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: BorderedText(
+                            child: Text(
+                              "Give this code to your family : ${Family.current.code}",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: MyTheme.light.accentColor),
+                            ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(16, 32, 16, 0),
-                          child: showProgressBar == true
-                              ? LinearProgressIndicator(
-                                  backgroundColor: Colors.red,
-                                )
-                              : Container(),
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: BorderedText(
+                            child: Text(
+                              "Swipe it up !",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: MyTheme.light.accentColor),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
+                          child: LinearProgressIndicator(
+                            value: timeIndex / (stirNumber - 1),
+                            backgroundColor: Colors.red,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
@@ -171,37 +173,43 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
                                     if (difference.inMilliseconds > cooldown) {
                                       if (timeIndex < 18) {
-                                        Get.snackbar("The dish is stiring !",
-                                            "You are stiring the dish",
+                                        Get.snackbar(
+                                            "You are Lou-ing the Yee Sang !",
+                                            "",
                                             colorText:
                                                 MyTheme.light.accentColor);
                                       } else {
-                                        Get.snackbar("The dish is ready !",
-                                            "You can't stir the dish anymore",
+                                        Get.snackbar("The Yee Sang is ready !",
+                                            "You can now discover the lucky number",
                                             colorText:
                                                 MyTheme.light.accentColor);
                                       }
 
                                       setState(() {
-                                        // Reset now
-                                        _now = DateTime.now();
+                                        if (timeIndex < 18) {
+                                          // Reset now
+                                          _now = DateTime.now();
 
-                                        startTimeoutProgressBar();
+                                          startTimeoutProgressBar();
 
-                                        // Increase counters
-                                        Family.current.n++;
-                                        Family.current
-                                            .members[User.current.index].n += 1;
+                                          // Increase counters
+                                          Family.current.n++;
+                                          Family
+                                              .current
+                                              .members[User.current.index]
+                                              .n += 1;
 
-                                        // Refresh the db
-                                        Storage.write(Family.current);
+                                          // Refresh the db
+                                          Storage.write(Family.current);
 
-                                        // Send the notif
-                                        Messaging.sendNotif(
-                                            Family.current, 'stir');
+                                          // Send the notif
+                                          Messaging.sendNotif(
+                                              Family.current, 'stir');
 
-                                        // Play the video
-                                        playVideo();
+                                          // Play the video
+                                          playVideo();
+                                        } else
+                                          playVideo();
                                       });
                                     }
                                   }
@@ -209,39 +217,58 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                 child: Container(
                                     width: Get.width,
                                     height: Get.width,
-                                    child: VideoPlayer(_controller))),
+                                    child: Stack(
+                                      children: [
+                                        VideoPlayer(_controller),
+                                        timeIndex >= 18
+                                            ? Align(
+                                                alignment:
+                                                    Alignment.bottomCenter,
+                                                child: RaisedButton(
+                                                    color: MyTheme
+                                                        .light.accentColor,
+                                                    textColor: MyTheme
+                                                        .light.primaryColor,
+                                                    onPressed: () {
+                                                      Get.defaultDialog(
+                                                          title: "Lucky Number",
+                                                          titleStyle: TextStyle(
+                                                              color: MyTheme
+                                                                  .light
+                                                                  .accentColor,
+                                                              fontSize: 30),
+                                                          backgroundColor:
+                                                              MyTheme.light
+                                                                  .primaryColor,
+                                                          content: Text(
+                                                            Family
+                                                                .current.lucky,
+                                                            style: TextStyle(
+                                                                fontSize: 26,
+                                                                color: MyTheme
+                                                                    .light
+                                                                    .accentColor),
+                                                          ));
+                                                    },
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Text(
+                                                        "Lucky number",
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                        ),
+                                                      ),
+                                                    )),
+                                              )
+                                            : Container()
+                                      ],
+                                    ))),
                           ),
                         ),
-                        timeIndex >= 18
-                            ? RaisedButton(
-                                color: MyTheme.light.accentColor,
-                                textColor: MyTheme.light.primaryColor,
-                                onPressed: () {
-                                  Get.defaultDialog(
-                                      title: "Lucky Number",
-                                      titleStyle: TextStyle(
-                                          color: MyTheme.light.accentColor,
-                                          fontSize: 30),
-                                      backgroundColor:
-                                          MyTheme.light.primaryColor,
-                                      content: Text(
-                                        Family.current.lucky,
-                                        style: TextStyle(
-                                            fontSize: 26,
-                                            color: MyTheme.light.accentColor),
-                                      ));
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Lucky number",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ))
-                            : Container()
                       ],
                     ),
                   ),
@@ -340,7 +367,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void playVideo() {
-    if (timeIndex < 18) {
+    if (timeIndex < stirNumber) {
       print("NOTIF video");
       // Pause the video
       _controller.pause();
@@ -359,11 +386,13 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void handleTimeout() {
-    _controller.pause();
     if (timeIndex == 18) {
+      _controller.play();
       Get.snackbar(
-          "The dish is ready !", "You can now discover your lucky number !",
+          "The Yee Sang is ready !", "You can now discover your lucky number !",
           colorText: MyTheme.light.accentColor);
+    } else {
+      _controller.pause();
     }
   }
 

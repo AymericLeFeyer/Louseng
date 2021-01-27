@@ -66,7 +66,7 @@ class _EntryViewState extends State<EntryView> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MyButton(
-                          title: "Create \na new dish",
+                          title: "Create a new\nYee Sang",
                           onPressed: createDish,
                           icon: Icons.add),
                       MyButton(

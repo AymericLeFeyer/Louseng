@@ -53,11 +53,11 @@ class Storage {
     homeview.setState(() {});
     if (video) {
       homeview.playVideo();
-      Get.snackbar("The dish is stiring !", "$name is stiring the dish !",
+      Get.snackbar("$name is Lou-ing the Yee Sang !", "",
           colorText: MyTheme.light.accentColor);
     } else {
       if (name != '') {
-        Get.snackbar("Someone joined !", "$name joined !",
+        Get.snackbar("$name joined the Yee Sang !", "",
             colorText: MyTheme.light.accentColor);
       }
     }
