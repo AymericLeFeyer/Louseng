@@ -25,31 +25,32 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   // Time stamps
   var timeIndex = 0;
   final times = [
-    4130,
-    1970,
-    1960,
-    1960,
-    1980,
-    1200,
-    1850,
-    1170,
-    1910,
-    1150,
-    1840,
-    1140,
+    4330,
+    1700,
+    1800,
     1500,
-    1100,
-    1810,
+    1700,
+    1230,
+    1140,
+    1200,
+    1130,
+    1210,
     1150,
-    1860,
-    2250
+    1100,
+    1140,
+    1140,
+    1100,
+    1160,
+    1160,
+    2060,
+    2200
   ];
-  var cooldown = 500;
 
   var stirNumber = 19;
 
-  var _now = DateTime.now();
   var showProgressBar = false;
+
+  var isPlaying = true;
 
   @override
   void initState() {
@@ -62,13 +63,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     // Messaging service
     Messaging.start();
 
-    // Progress bar service
-    startTimeoutProgressBar();
-
     // First frames
     playVideo();
-
-    timeIndex = 0;
 
     super.initState();
   }
@@ -146,7 +142,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: BorderedText(
                             child: Text(
-                              "Swipe it up !",
+                              "Swipe it up ! $timeIndex : ${times[timeIndex]}",
                               style: TextStyle(
                                   fontSize: 24,
                                   color: MyTheme.light.accentColor),
@@ -168,11 +164,8 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             child: GestureDetector(
                                 onVerticalDragUpdate: (details) {
                                   if (details.delta.dy < 0) {
-                                    Duration difference =
-                                        DateTime.now().difference(_now);
-
-                                    if (difference.inMilliseconds > cooldown) {
-                                      if (timeIndex < 18) {
+                                    if (!isPlaying) {
+                                      if (timeIndex < (stirNumber - 1)) {
                                         Get.snackbar(
                                             "You are Lou-ing the Yee Sang !",
                                             "",
@@ -186,12 +179,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                       }
 
                                       setState(() {
-                                        if (timeIndex < 18) {
-                                          // Reset now
-                                          _now = DateTime.now();
-
-                                          startTimeoutProgressBar();
-
+                                        if (timeIndex < (stirNumber - 1)) {
                                           // Increase counters
                                           Family.current.n++;
                                           Family
@@ -220,7 +208,7 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                     child: Stack(
                                       children: [
                                         VideoPlayer(_controller),
-                                        timeIndex >= 18
+                                        timeIndex >= (stirNumber - 1)
                                             ? Align(
                                                 alignment:
                                                     Alignment.bottomCenter,
@@ -367,12 +355,16 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void playVideo() {
+    Future<Duration> d = _controller.position;
+    d.then((value) => print("duration: " + value.inMilliseconds.toString()));
+
     if (timeIndex < stirNumber) {
       print("NOTIF video");
       // Pause the video
       _controller.pause();
       // Start the video
       _controller.play();
+      isPlaying = true;
 
       startTimeout(times[timeIndex]);
 
@@ -386,28 +378,14 @@ class HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   }
 
   void handleTimeout() {
-    if (timeIndex == 18) {
+    if (timeIndex == (stirNumber - 1)) {
       _controller.play();
       Get.snackbar(
           "The Yee Sang is ready !", "You can now discover your lucky number !",
           colorText: MyTheme.light.accentColor);
     } else {
+      isPlaying = false;
       _controller.pause();
     }
-  }
-
-  startTimeoutProgressBar() {
-    setState(() {
-      showProgressBar = true;
-    });
-    var duration = Duration(milliseconds: cooldown);
-    print("time :" + duration.toString());
-    return new Timer(duration, handleTimeoutProgressBar);
-  }
-
-  void handleTimeoutProgressBar() {
-    setState(() {
-      showProgressBar = false;
-    });
   }
 }

@@ -141,7 +141,7 @@ void joinDish(BuildContext context) async {
 
 bool codeWrote() {
   if (EntryView.code == null || EntryView.code == "") {
-    Get.snackbar("What is your code ?", "You need to enter the code before !",
+    Get.snackbar("What is your code ?", "You need to enter the code first !",
         colorText: MyTheme.light.accentColor);
     return false;
   } else
@@ -150,7 +150,7 @@ bool codeWrote() {
 
 bool nameWrote() {
   if (EntryView.name == null || EntryView.name == "") {
-    Get.snackbar("Who are you ?", "You need to put your name before !",
+    Get.snackbar("Who are you ?", "You need to put in your name first !",
         colorText: MyTheme.light.accentColor);
     return false;
   } else
@@ -169,7 +169,7 @@ Future<void> displayTextInputDialog(BuildContext context) async {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                  "Here you can enter a code. \nAsk it to your family and let's stir the dish !"),
+                  "Here you can enter a code. \nAsk it to your family and let's stir the Yee Sang !"),
               TextField(
                 textCapitalization: TextCapitalization.characters,
                 onChanged: (value) {
